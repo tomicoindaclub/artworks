@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+
+import { useEffect, useState } from 'react';
 import './App.css';
+import Artworks from './components/Artworks';
+import LoadingMask from './components/LoadingMask';
+
+
+
 
 function App() {
+  
+  const [data,setData] = useState([])
+
+  const apiKey = `6bdd0f06-3c54-4960-b04d-4ad36cf5eea4`
+
+  const fetchData = () =>{
+    fetch(`https://api.harvardartmuseums.org/object?apikey=${apiKey}&size=100`)
+      .then(res => res.json())
+      .then((data) => {
+    setTimeout(() =>{
+      setData(data)
+    },2000)})
+  }
+    console.log(data)
+  useEffect(() => {
+    fetchData()
+  },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+       {data.records? <Artworks data={data}/> : <LoadingMask/>} 
     </div>
   );
 }
