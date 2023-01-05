@@ -1,6 +1,7 @@
 import React from "react";
 import Artwork from "./Artwork";
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 function Artworks({ data }) {
   const [favorites, setFavorites] = useState([]);

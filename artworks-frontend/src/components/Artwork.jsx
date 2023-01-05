@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
+import { Link } from "react-router-dom";
 
 function Artwork({
   classification,
@@ -85,8 +86,15 @@ function Artwork({
               Add to favorites
             </Button>
           )}
-          <Button size="small" color="primary" id={id} variant="contained">
-            More informations
+          <Button
+            component={Link}
+            to="/art"
+            size="small"
+            color="primary"
+            id={id}
+            variant="contained"
+          >
+            More about this
           </Button>
         </CardActions>
       </Card>
