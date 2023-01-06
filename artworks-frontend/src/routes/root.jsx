@@ -5,8 +5,6 @@ import LoadingMask from "../components/LoadingMask";
 import Drawer from "@mui/material/Drawer";
 import { Outlet } from "react-router-dom";
 
-export const artworkList = [];
-
 function Root() {
   const [data, setData] = useState([]);
 

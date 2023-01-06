@@ -88,7 +88,7 @@ function Artwork({
           )}
           <Button
             component={Link}
-            to="/art"
+            to={`/art/${id}`}
             size="small"
             color="primary"
             id={id}
